@@ -6,6 +6,7 @@ import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -26,9 +27,16 @@ public class HelloController {
     public ImageView imVw0;
     @FXML
     public  Label lblAlmacen = new Label(strAlmacen);
+    Label lblThreadP = new Label(ProducerConsumer.strStateP);
+    Label lblThreadC = new Label(ProducerConsumer.strStateC);
 
     @FXML
     protected TextField tfTiempo;
+
+    @FXML
+    protected ListView listVwProductor;
+    @FXML
+    protected ListView listVwConsumer;
 
 
 
@@ -37,6 +45,8 @@ public class HelloController {
     public void onInicioButtonClick() {
         System.out.println("Iniciando Programa...");
         lblAlmacen.setText("");
+        listVwProductor.getItems().add(lblThreadP);
+        listVwConsumer.getItems().add(lblThreadC);
 
         Task task = new Task<Void>() {
             @Override
@@ -45,10 +55,10 @@ public class HelloController {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
-                            lblAlmacen.setText(strAlmacen);
+                            updateLabel();
                         }
                     });
-                    Thread.sleep(10);
+                    Thread.sleep(100);
                 }
             }
         };
@@ -84,8 +94,11 @@ public class HelloController {
 
     public  void updateLabel(){
         System.out.println("Update Label Message");
-        lblAlmacen.setBackground(Background.fill(Color.BLACK));
+        //lblAlmacen.setBackground(Background.fill(Color.BLACK));
         lblAlmacen.setText(strAlmacen);
+        lblAlmacen.setBackground(Background.fill(ProducerConsumer.lblBG));
+        lblThreadP.setText(ProducerConsumer.strStateP);
+        lblThreadC.setText(ProducerConsumer.strStateC);
     }
 
 

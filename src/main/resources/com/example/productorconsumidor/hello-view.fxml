@@ -92,6 +92,9 @@
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
                   </ListView>
                </children>
                <HBox.margin>
@@ -115,15 +118,18 @@
                      </font>
                   </Label>
                   <TextField fx:id="tfCapacity" onAction="#capacidadEntered" promptText="Ingrese Capacidad Almacén" />
-                  <Label fx:id="lblAlmacen" alignment="CENTER" contentDisplay="CENTER" text="Almacen Vacio" textAlignment="CENTER">
+                  <Label fx:id="lblAlmacen" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" text="Almacen Vacio" textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets top="3.0" />
                      </VBox.margin>
                      <padding>
                         <Insets top="3.0" />
                      </padding>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
                   </Label>
-                  <TilePane hgap="3.0" maxHeight="300.0" maxWidth="300.0" minHeight="100.0" minWidth="100.0" prefHeight="200.0" prefWidth="200.0" tileAlignment="TOP_LEFT" vgap="3.0" VBox.vgrow="NEVER">
+                  <TilePane hgap="3.0" maxHeight="300.0" maxWidth="300.0" minHeight="100.0" minWidth="100.0" prefHeight="107.0" prefWidth="200.0" tileAlignment="TOP_LEFT" vgap="3.0" VBox.vgrow="NEVER">
                      <children>
                         <ImageView fx:id="imVw0" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <TilePane.margin>

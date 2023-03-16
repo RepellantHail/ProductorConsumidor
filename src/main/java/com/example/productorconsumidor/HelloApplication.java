@@ -26,9 +26,6 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Productor Consumidor");
         stage.setScene(scene);
-
-
-
         stage.show();
     }
 
