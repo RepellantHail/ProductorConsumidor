@@ -28,7 +28,7 @@
                <font>
                   <Font name="System Bold" size="17.0" />
                </font></Button>
-            <Button mnemonicParsing="false" style="-fx-background-color: red;" text="Exit">
+            <Button fx:id="btnExit" mnemonicParsing="false" onAction="#onExitButtonClick" style="-fx-background-color: red;" text="Exit">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

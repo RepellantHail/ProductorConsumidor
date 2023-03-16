@@ -13,7 +13,16 @@ public class ProducerConsumer {
     public static String strStateC = "Mimido..";
     public static Color lblBG = Color.ROYALBLUE ;
     int time = 3000;
+    private volatile Boolean state=true;
     int nameCounter = 0;
+
+    public Boolean getState(){
+        return state;
+    }
+
+    public void setState(Boolean _state){
+        this.state = _state;
+    }
 
     public int getCapacity(){
         return capacity;
@@ -32,9 +41,9 @@ public class ProducerConsumer {
 
     protected void produce() throws InterruptedException {
         int value = 0;
-        while (true) {
+        while (true && state) {
             synchronized (this) {
-                while (list.size() == capacity) {
+                while (list.size() == capacity ) {
                     strStateP = "Descansando";
                     lblBG = Color.LIGHTGOLDENRODYELLOW;
                     wait();
@@ -50,13 +59,14 @@ public class ProducerConsumer {
                 Thread.sleep(time);
             }
         }
+        strStateP = "Descansando";
     }
 
     // Function called by consumer thread
     public void consume() throws InterruptedException {
-        while (true) {
+        while (true && state) {
             synchronized (this) {
-                while (list.size() == 0) {
+                while (list.size() == 0 && state) {
                     strStateC = "Descansando";
                     lblBG = Color.LIGHTGREEN;
                     wait();
@@ -69,5 +79,9 @@ public class ProducerConsumer {
                 Thread.sleep(time);
             }
         }
+        strStateC = "Descansando";
     }
+
+
+
 }

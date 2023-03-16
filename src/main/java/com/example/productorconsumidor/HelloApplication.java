@@ -58,28 +58,28 @@ public class HelloApplication extends Application {
         }
 
     public static void iniciarHilos() throws InterruptedException  {
-        // Create producer thread
+
         Thread productor = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     pc.produce();
                 }
-                catch (InterruptedException e) { e.printStackTrace(); }
+                catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
-
-        // Create consumer thread
         Thread  consumidor = new Thread(new Runnable() {
             @Override
             public void run() {
                 try { pc.consume(); }
-                catch (InterruptedException e) {  e.printStackTrace();}
+                catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
-        // Start both threads
         productor.start();  consumidor.start();
-        // t1 finishes before t2
         productor.join();  consumidor.join();
     }
 
@@ -89,6 +89,14 @@ public class HelloApplication extends Application {
 
     public static void modificarTiempo(int time){
         pc.setTime(time);
+    }
+
+    public static void detenerHilos(){
+        pc.setState(false);
+    }
+
+    public static void activarHilos(){
+        pc.setState(true);
     }
 
 }

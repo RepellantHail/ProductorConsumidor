@@ -44,9 +44,10 @@ public class HelloController {
     @FXML
     public void onInicioButtonClick() {
         System.out.println("Iniciando Programa...");
-        lblAlmacen.setText("");
+        HelloApplication.activarHilos();
         listVwProductor.getItems().add(lblThreadP);
         listVwConsumer.getItems().add(lblThreadC);
+        lblAlmacen.setText("");
 
         Task task = new Task<Void>() {
             @Override
@@ -72,11 +73,12 @@ public class HelloController {
     @FXML
     public void onStopButtonClick(){
         System.out.println("Detener Hilos...");
+        HelloApplication.detenerHilos();
         //imVw0.setVisible(false);
-        imageViewAlmacen.setFitHeight(30);
-        imageViewAlmacen.setFitWidth(30);
+       // imageViewAlmacen.setFitHeight(30);
+        //imageViewAlmacen.setFitWidth(30);
 //        lblAlmacen.setGraphic(imageViewAlmacen);
-        lblAlmacen.setText("Almacen Vacio");
+       // lblAlmacen.setText("Almacen Vacio");
        // lblAlmacen.setText(lblAlmacen.getText()+"*");
         //lblAlmacen.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("/home/jearim/IdeaProjects/ProductorConsumidor/src/main/resources/com/example/productorconsumidor/herrero.png"))));
 
@@ -101,5 +103,8 @@ public class HelloController {
         lblThreadC.setText(ProducerConsumer.strStateC);
     }
 
+    public void onExitButtonClick(){
+
+    }
 
 }
