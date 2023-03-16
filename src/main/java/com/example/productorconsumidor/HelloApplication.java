@@ -3,6 +3,7 @@ package com.example.productorconsumidor;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -25,6 +26,9 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Productor Consumidor");
         stage.setScene(scene);
+
+
+
         stage.show();
     }
 
@@ -56,8 +60,7 @@ public class HelloApplication extends Application {
         backgroundThread.start();
         }
 
-    public static void iniciarHilos() throws InterruptedException {
-
+    public static void iniciarHilos() throws InterruptedException  {
         // Create producer thread
         Thread productor = new Thread(new Runnable() {
             @Override

@@ -6,8 +6,9 @@ import java.util.LinkedList;
 
 public class ProducerConsumer {
     LinkedList<Integer> list = new LinkedList<>();
+//    HelloController objectLabel = new HelloController();
      int capacity = 4;
-    int time = 1000;
+    int time = 3000;
     int nameCounter = 0;
 
     public int getCapacity(){
@@ -33,6 +34,9 @@ public class ProducerConsumer {
                     wait();
                 System.out.println("Productor "+ nameCounter +" produced-"+ value);
                 HelloController.strAlmacen += "*";
+//                HelloController.updateLabel();
+                //objectLabel.updateLabel();
+                //HelloController.updateMessage();
                 list.add(value++);
                 notify();
                 Thread.sleep(time);

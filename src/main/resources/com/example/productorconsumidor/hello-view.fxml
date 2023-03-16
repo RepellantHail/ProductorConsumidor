@@ -103,7 +103,7 @@
             </VBox>
             <VBox alignment="TOP_CENTER" spacing="20.0">
                <children>
-                  <Label id="lblStorage" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Almacén" textAlignment="CENTER">
+                  <Label id="lblStorage" fx:id="labelTitleAlmacen" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Almacén" textAlignment="CENTER">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
@@ -115,7 +115,7 @@
                      </font>
                   </Label>
                   <TextField fx:id="tfCapacity" onAction="#capacidadEntered" promptText="Ingrese Capacidad Almacén" />
-                  <Label fx:id="lblAlmacen" alignment="CENTER" contentDisplay="CENTER" text="   " textAlignment="CENTER" wrapText="true">
+                  <Label fx:id="lblAlmacen" alignment="CENTER" contentDisplay="CENTER" text="Almacen Vacio" textAlignment="CENTER">
                      <VBox.margin>
                         <Insets top="3.0" />
                      </VBox.margin>
@@ -168,7 +168,7 @@
                         <Insets top="3.0" />
                      </padding>
                   </TilePane>
-                  <TextField alignment="TOP_LEFT" onAction="#tiempoEntered" promptText="Ingrese TIempo " />
+                  <TextField fx:id="tfTiempo" alignment="TOP_LEFT" onAction="#tiempoEntered" promptText="Ingrese TIempo " />
                </children>
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
