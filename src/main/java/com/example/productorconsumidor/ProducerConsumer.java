@@ -1,12 +1,13 @@
 package com.example.productorconsumidor;
 
 import javafx.concurrent.Task;
+import org.apache.commons.lang3.StringUtils;
 import java.util.LinkedList;
 
 public class ProducerConsumer {
     LinkedList<Integer> list = new LinkedList<>();
-     int capacity = 2;
-    int time = 300;
+     int capacity = 4;
+    int time = 1000;
     int nameCounter = 0;
 
     public int getCapacity(){
@@ -31,6 +32,7 @@ public class ProducerConsumer {
                 while (list.size() == capacity)
                     wait();
                 System.out.println("Productor "+ nameCounter +" produced-"+ value);
+                HelloController.strAlmacen += "*";
                 list.add(value++);
                 notify();
                 Thread.sleep(time);
@@ -46,6 +48,7 @@ public class ProducerConsumer {
                     wait();
                 int val = list.removeFirst();
                 System.out.println("Consumidor "+ nameCounter +" consumido-" + val);
+                HelloController.strAlmacen = StringUtils.chop(HelloController.strAlmacen);
                 notify();
                 Thread.sleep(time);
             }

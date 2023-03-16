@@ -15,13 +15,15 @@ import java.io.FileNotFoundException;
 import java.util.Locale;
 
 public class HelloController {
+    public static String strAlmacen="    ";
     @FXML
     Image imageAlmacen = new Image(getClass().getResourceAsStream("herrero.png"));
     ImageView imageViewAlmacen = new ImageView(imageAlmacen);
     @FXML
     protected TextField tfCapacity;
     public ImageView imVw0;
-    public Label lblAlmacen;
+    @FXML
+    private static Label lblAlmacen;
 
     @FXML
     protected TextField tfTiempo;
@@ -30,7 +32,9 @@ public class HelloController {
     @FXML
     public void onInicioButtonClick() {
         System.out.println("Iniciando Programa...");
-        HelloApplication.startPrograma();
+
+        lblAlmacen.setText("Almacen Vacio");
+        //HelloApplication.startPrograma();
     }
 
     @FXML
@@ -39,9 +43,8 @@ public class HelloController {
         //imVw0.setVisible(false);
         imageViewAlmacen.setFitHeight(30);
         imageViewAlmacen.setFitWidth(30);
-        lblAlmacen.setGraphic(imageViewAlmacen);
-
-
+//        lblAlmacen.setGraphic(imageViewAlmacen);
+        lblAlmacen.setText("Almacen Vacio");
        // lblAlmacen.setText(lblAlmacen.getText()+"*");
         //lblAlmacen.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("/home/jearim/IdeaProjects/ProductorConsumidor/src/main/resources/com/example/productorconsumidor/herrero.png"))));
 
@@ -56,6 +59,7 @@ public class HelloController {
         System.out.println("Modificando Tiempo...");
         HelloApplication.modificarTiempo(Integer.parseInt(tfTiempo.getText()));
     }
+
 
 
 }

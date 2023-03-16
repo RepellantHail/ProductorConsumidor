@@ -115,7 +115,7 @@
                      </font>
                   </Label>
                   <TextField fx:id="tfCapacity" onAction="#capacidadEntered" promptText="Ingrese Capacidad Almacén" />
-                  <Label fx:id="lblAlmacen" alignment="CENTER" contentDisplay="CENTER" textAlignment="CENTER" wrapText="true">
+                  <Label fx:id="lblAlmacen" alignment="CENTER" contentDisplay="CENTER" text="   " textAlignment="CENTER" wrapText="true">
                      <VBox.margin>
                         <Insets top="3.0" />
                      </VBox.margin>

@@ -38,7 +38,12 @@ public class HelloApplication extends Application {
         Runnable task = new Runnable() {
             @Override
             public void run() {
-                try { iniciarHilos();}
+                try {
+                    iniciarHilos();
+                    //HelloController.lblAlmacen.setText(HelloController.strAlmacen);
+//                   HelloController controlarLabel = new HelloController();
+//                   controlarLabel.lblAlmacen.setText(HelloController.strAlmacen);
+                }
                 catch (InterruptedException e) { throw new RuntimeException(e); }
             }
         };
@@ -49,14 +54,17 @@ public class HelloApplication extends Application {
         backgroundThread.setDaemon(true);
         // Start the thread
         backgroundThread.start();
-    }
+        }
 
     public static void iniciarHilos() throws InterruptedException {
+
         // Create producer thread
         Thread productor = new Thread(new Runnable() {
             @Override
             public void run() {
-                try { pc.produce();}
+                try {
+                    pc.produce();
+                }
                 catch (InterruptedException e) { e.printStackTrace(); }
             }
         });
